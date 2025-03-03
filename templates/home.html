@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Awareness</h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+                {% if user %}
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('resources') }}">Resources</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <section class="content">
+            <h2>Welcome to Cybersecurity Awareness</h2>
+            <p>Stay Safe Online</p>
+            <h3>Essential Cybersecurity Tips</h3>
+            <p>Cybersecurity is crucial in today's digital age. Protect yourself by following best practices.</p>
+            {% if user %}
+                <p>Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): {{ current_time }}</p>
+                <p>Current User's Login: {{ user }}</p>
+            {% else %}
+                <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to access more features.</p>
+            {% endif %}
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Cybersecurity Awareness Project</p>
+    </footer>
+</body>
+</html>

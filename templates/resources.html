@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Awareness - Resources</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li class="active"><a href="{{ url_for('resources') }}">Resources</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="content">
+            <h2>Cybersecurity Resources</h2>
+            <h3>Best Practices and Guidelines</h3>
+            <p>Here are some useful cybersecurity resources to help you stay protected.</p>
+
+            <p>Cybersecurity Guides:</p>
+            <ul>
+                <li><a href="https://www.cybersecurityguide.org/">Cybersecurity Guide</a></li>
+                <li><a href="https://www.sans.org/tip-of-the-day/">SANS Tip of the Day</a></li>
+                <li><a href="https://us.norton.com/blog">Norton Cybersecurity Blog</a></li>
+            </ul>
+
+            <p>Additional Resources:</p>
+            <ul>
+                <li><a href="https://www.acsc.gov.au/">Australian Cyber Security Centre</a></li>
+                <li><a href="https://www.staysafeonline.org/">Stay Safe Online</a></li>
+                <li><a href="https://www.us-cert.gov/ncas/tips">US-CERT Cyber Security</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Cybersecurity Awareness Project</p>
+    </footer>
+</body>
+</html>

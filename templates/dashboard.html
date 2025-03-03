@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cybersecurity Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Cybersecurity Awareness</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('resources') }}">Resources</a></li>
+                <li class="active"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <section class="content">
+            <h2>Welcome to your Dashboard, {{ user }}!</h2>
+            <p>This is your personal cybersecurity dashboard. Here you can access all your secure resources.</p>
+            
+            <div class="dashboard-info">
+                <p>Current Date and Time: {{ current_time }}</p>
+                <p>Your Login: {{ user }}</p>
+            </div>
+            
+            <div class="dashboard-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Support</a></li>
+                    <li><a href="{{ url_for('resources') }}">Cybersecurity Resources</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Current Date and Time: {{ current_time }}</p>
+    </footer>
+</body>
+</html>

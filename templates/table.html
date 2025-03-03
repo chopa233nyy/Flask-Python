@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Table</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Cybersecurity Threats Overview</h1>
+    
+    <table border="1">
+        <tr>
+            <th>Threat</th>
+            <th>Risk Level</th>
+            <th>Mitigation</th>
+        </tr>
+        <tr>
+            <td>Phishing</td>
+            <td>High</td>
+            <td>Verify email sender before clicking links.</td>
+        </tr>
+        <tr>
+            <td>Ransomware</td>
+            <td>Critical</td>
+            <td>Keep backups and avoid suspicious downloads.</td>
+        </tr>
+        <tr>
+            <td>Social Engineering</td>
+            <td>Medium</td>
+            <td>Educate employees about security awareness.</td>
+        </tr>
+        <tr>
+            <td>Zero-Day Exploits</td>
+            <td>High</td>
+            <td>Regular software updates and patches.</td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
